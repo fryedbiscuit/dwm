@@ -1,7 +1,7 @@
-dwm - dynamic window manager
-============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+My fork of dwm
 
+The original is here:
+https://dwm.suckless.org/
 
 Requirements
 ------------
@@ -40,9 +40,3 @@ like this in your .xinitrc:
     	sleep 1
     done &
     exec dwm
-
-
-Configuration
--------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
