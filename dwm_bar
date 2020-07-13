@@ -1,0 +1,13 @@
+#!/bin/bash
+bar_battery () {
+	if [ -e /sys/class/power_supply/BAT1/capacity ]; then
+		CHARGE=$(cat /sys/class/power_supply/BAT1/capacity)
+		STATUS=$(cat /sys/class/power_supply/BAT1/status)
+		printf "%s, %s%% | " "$STATUS" "$CHARGE"
+	fi
+}
+
+while true; do
+	xsetroot -name "$(bar_battery)$(date +%H:%M)"
+	sleep 30
+done

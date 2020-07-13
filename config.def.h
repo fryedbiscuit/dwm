@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -11,8 +11,8 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int startontag         = 1;        /* 0 means no tag active on start */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=8" };
+static const char dmenufont[]       = "monospace:size=8";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -25,7 +25,16 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"st", NULL,
+	"pa-applet", NULL,
+	"nm-applet", NULL,
+	"picom", NULL,
+	"xfce4-power-manager", NULL,
+	"xfce4-clipman", NULL,
+	"udiskie", "-t", "-N", NULL,
+	/* "blueman-applet", NULL, */
+	"numlockx", "on", NULL,
+	"shuf_wallpaper", NULL,
+	"dwm_bar", NULL,
 	NULL /* terminate */
 };
 
@@ -60,7 +69,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -72,25 +81,26 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_d,      spawn,          {.v = dmenucmd } },
+	/* { MODKEY,			XK_d,	   spawn,          SHCMD("dmenu_recency") }, */
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -114,8 +124,27 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {0} }, /* Quit dwm */
+	{ MODKEY|ControlMask,		XK_r,      quit,           {1} }, /* Restart dwm */
+
+	/* Audio hotkeys */
+	{ MODKEY,			XK_minus,	spawn,		SHCMD("pamixer -d 5 --allow-boost") },
+	{ MODKEY,			XK_equal,	spawn,		SHCMD("pamixer -i 5 --allow-boost") },
+	{ MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("pamixer -t") },
+	
+	/* System programs */
+	{ MODKEY,			XK_c,		spawn,		SHCMD("picom_toggle") },
+	{ MODKEY,			XK_a,		spawn,		SHCMD("st -e pulsemixer") },
+	{ MODKEY|ShiftMask,		XK_a,		spawn,		SHCMD("pavucontrol") },
+	{ MODKEY|ShiftMask,		XK_l,		spawn,		SHCMD("toggle_led") },
+
+	/* Program launching */
+	{ MODKEY,			XK_w,		spawn,		SHCMD("qutebrowser") },
+	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("google-chrome-beta") },
+	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
+	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e htop") },
+	{ MODKEY,			XK_p,		spawn,		SHCMD("st -e bpython") },
+	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/git/vimwiki/index.wiki") },
 };
 
 /* button definitions */
