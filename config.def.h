@@ -11,8 +11,8 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int startontag         = 1;        /* 0 means no tag active on start */
-static const char *fonts[]          = { "monospace:size=8" };
-static const char dmenufont[]       = "monospace:size=8";
+static const char *fonts[]          = { "monospace:size=10" };
+static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -31,6 +31,7 @@ static const char *const autostart[] = {
 	"xfce4-power-manager", NULL,
 	"xfce4-clipman", NULL,
 	"udiskie", "-t", "-N", NULL,
+	"dropbox", NULL,
 	/* "blueman-applet", NULL, */
 	"numlockx", "on", NULL,
 	"~/.fehbg", NULL,
