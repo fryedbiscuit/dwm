@@ -25,16 +25,17 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"nitrogen", "--restore", NULL,
 	"pa-applet", NULL,
 	"nm-applet", NULL,
 	"picom", NULL,
 	"xfce4-power-manager", NULL,
 	"xfce4-clipman", NULL,
 	"udiskie", "-t", "-N", NULL,
-	"dropbox", NULL,
-	/* "blueman-applet", NULL, */
+	"blueman-applet", NULL,
 	"numlockx", "on", NULL,
-	"~/.fehbg", NULL,
+	"fcitx", NULL,
+	"dropbox", NULL,
 	"dwm_bar", NULL,
 	NULL /* terminate */
 };
@@ -141,12 +142,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_l,		spawn,		SHCMD("toggle_led") },
 
 	/* Program launching */
-	{ MODKEY,			XK_w,		spawn,		SHCMD("qutebrowser") },
-	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("google-chrome-beta") },
+	{ MODKEY,			XK_w,		spawn,		SHCMD("google-chrome-stable") },
+	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("qutebrowser") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
 	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e htop") },
 	{ MODKEY,			XK_p,		spawn,		SHCMD("st -e bpython") },
-	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/git/vimwiki/index.wiki") },
+	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/vimwiki/index.wiki") },
 };
 
 /* button definitions */
