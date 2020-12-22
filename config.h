@@ -30,7 +30,7 @@ static const char *const autostart[] = {
 	"nm-applet", NULL,
 	"picom", NULL,
 	"xfce4-power-manager", NULL,
-	"xfce4-clipman", NULL,
+	"copyq", NULL,
 	"udiskie", "-t", "-N", NULL,
 	"blueman-applet", NULL,
 	"numlockx", "on", NULL,
