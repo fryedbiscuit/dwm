@@ -30,7 +30,7 @@ static const char *const autostart[] = {
 	"nm-applet", NULL,
 	"picom", NULL,
 	"xfce4-power-manager", NULL,
-	"xfce4-clipman", NULL,
+	"copyq", NULL,
 	"udiskie", "-t", "-N", NULL,
 	"blueman-applet", NULL,
 	"numlockx", "on", NULL,
@@ -140,12 +140,13 @@ static Key keys[] = {
 	{ MODKEY,			XK_a,		spawn,		SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,		XK_a,		spawn,		SHCMD("pavucontrol") },
 	{ MODKEY|ShiftMask,		XK_l,		spawn,		SHCMD("toggle_led") },
+	{ 0,				XK_Print,	spawn,		SHCMD("scr") },
 
 	/* Program launching */
-	{ MODKEY,			XK_w,		spawn,		SHCMD("google-chrome-stable") },
+	{ MODKEY,			XK_w,		spawn,		SHCMD("firefox") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("qutebrowser") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
-	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e htop") },
+	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e sudo htop") },
 	{ MODKEY,			XK_p,		spawn,		SHCMD("st -e bpython") },
 	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/vimwiki/index.wiki") },
 };
