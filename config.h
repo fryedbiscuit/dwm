@@ -146,7 +146,7 @@ static Key keys[] = {
 	{ 0,				XK_Print,	spawn,		SHCMD("scr") },
 
 	/* Program launching */
-	{ MODKEY,			XK_w,		spawn,		SHCMD("firefox") },
+	{ MODKEY,			XK_w,		spawn,		SHCMD("brave") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("torbrowser-launcher") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
 	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e sudo htop") },
