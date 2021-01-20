@@ -35,8 +35,8 @@ static const char *const autostart[] = {
 	"blueman-applet", NULL,
 	"numlockx", "on", NULL,
 	"fcitx", NULL,
-	"dropbox", NULL,
 	"dwm_bar", NULL,
+	/* "dropbox", NULL, */
 	NULL /* terminate */
 };
 
