@@ -92,7 +92,7 @@ static const char *termcmd[]  = { "st", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,			XK_d,      spawn,          {.v = dmenucmd } },
-	/* { MODKEY,			XK_d,	   spawn,          SHCMD("dmenu_recency") }, */
+	{ MODKEY|ShiftMask,		XK_d,	   spawn,          SHCMD("j4-dmenu-desktop") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -151,6 +151,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
 	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e sudo htop") },
 	{ MODKEY,			XK_p,		spawn,		SHCMD("st -e bpython") },
+	{ MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("xfce4-appfinder") },
 	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/vimwiki/index.wiki") },
 };
 
