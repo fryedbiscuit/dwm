@@ -30,7 +30,7 @@ static const char *const autostart[] = {
 	"nm-applet", NULL,
 	"picom", NULL,
 	"xfce4-power-manager", NULL,
-	"copyq", NULL,
+	"xfce4-clipman", NULL,
 	"udiskie", "-t", "-N", NULL,
 	"blueman-applet", NULL,
 	"numlockx", "on", NULL,
@@ -45,7 +45,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
+ *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
@@ -92,7 +92,7 @@ static const char *termcmd[]  = { "st", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,			XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,		XK_d,	   spawn,          SHCMD("j4-dmenu-desktop") },
+	{ MODKEY,			XK_p,	   spawn,          SHCMD("j4-dmenu-desktop") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -137,22 +137,24 @@ static Key keys[] = {
 	{ MODKEY,			XK_minus,	spawn,		SHCMD("pamixer -d 5 --allow-boost") },
 	{ MODKEY,			XK_equal,	spawn,		SHCMD("pamixer -i 5 --allow-boost") },
 	{ MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("pamixer -t") },
-	
+
 	/* System programs */
 	{ MODKEY,			XK_c,		spawn,		SHCMD("picom_toggle") },
 	{ MODKEY,			XK_a,		spawn,		SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,		XK_a,		spawn,		SHCMD("pavucontrol") },
 	{ MODKEY|ShiftMask,		XK_l,		spawn,		SHCMD("toggle_led") },
 	{ 0,				XK_Print,	spawn,		SHCMD("scr") },
+	{ MODKEY,			XK_backslash,	spawn,		SHCMD("slock") },
 
 	/* Program launching */
-	{ MODKEY,			XK_w,		spawn,		SHCMD("brave") },
+	{ MODKEY,			XK_w,		spawn,		SHCMD("firefox") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("torbrowser-launcher") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
 	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e sudo htop") },
-	{ MODKEY,			XK_p,		spawn,		SHCMD("st -e bpython") },
-	{ MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("xfce4-appfinder") },
+	{ MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("st -e bpython") },
+	/* { MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("xfce4-appfinder") }, */
 	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/vimwiki/index.wiki") },
+
 };
 
 /* button definitions */
