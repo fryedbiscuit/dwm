@@ -153,7 +153,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e sudo htop") },
 	{ MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("st -e bpython") },
 	/* { MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("xfce4-appfinder") }, */
-	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/vimwiki/index.wiki") },
+	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/git/vimwiki/index.wiki") },
 
 };
 
