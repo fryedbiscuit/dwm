@@ -11,8 +11,8 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int startontag         = 1;        /* 0 means no tag active on start */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=9" };
+static const char dmenufont[]       = "monospace:size=9";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -25,18 +25,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"nitrogen", "--restore", NULL,
-	"pa-applet", NULL,
-	"nm-applet", NULL,
-	"picom", NULL,
-	"xfce4-power-manager", NULL,
-	"xfce4-clipman", NULL,
-	"udiskie", "-t", "-N", NULL,
-	"blueman-applet", NULL,
-	"numlockx", "on", NULL,
-	"fcitx", NULL,
-	"dwm_bar", NULL,
-	/* "dropbox", NULL, */
+	/* "autoexecutable", NULL, */
 	NULL /* terminate */
 };
 
@@ -91,9 +80,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,			XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,			XK_p,	   spawn,          SHCMD("j4-dmenu-desktop") },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	/* { MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -133,28 +120,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_q,      quit,           {0} }, /* Quit dwm */
 	{ MODKEY|ControlMask,		XK_r,      quit,           {1} }, /* Restart dwm */
 
-	/* Audio hotkeys */
-	{ MODKEY,			XK_minus,	spawn,		SHCMD("pamixer -d 5 --allow-boost") },
-	{ MODKEY,			XK_equal,	spawn,		SHCMD("pamixer -i 5 --allow-boost") },
-	{ MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("pamixer -t") },
-
-	/* System programs */
-	{ MODKEY,			XK_c,		spawn,		SHCMD("picom_toggle") },
-	{ MODKEY,			XK_a,		spawn,		SHCMD("st -e pulsemixer") },
-	{ MODKEY|ShiftMask,		XK_a,		spawn,		SHCMD("pavucontrol") },
-	{ MODKEY|ShiftMask,		XK_l,		spawn,		SHCMD("toggle_led") },
-	{ 0,				XK_Print,	spawn,		SHCMD("scr") },
-	{ MODKEY,			XK_backslash,	spawn,		SHCMD("slock") },
-
-	/* Program launching */
-	{ MODKEY,			XK_w,		spawn,		SHCMD("firefox") },
-	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("torbrowser-launcher") },
-	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e vifm") },
-	{ MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("pcmanfm") },
-	{ MODKEY|ShiftMask,		XK_h,		spawn,		SHCMD("st -e sudo htop") },
-	{ MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("passmenu") },
-	{ MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("python") },
-	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e vim ~/git/vimwiki/index.wiki") },
 
 };
 
