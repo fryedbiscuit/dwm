@@ -60,6 +60,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 	{ "><>",      NULL },    /* no layout function means floating */
 };
 
@@ -99,7 +101,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[2]} }, /* Tile */
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} }, /* Monocle */
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[4]} }, /* Grid */
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[5]} }, /* Floating */
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} }, /* BottomStack */
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} }, /* BottomStackHoriz */
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[7]} }, /* Floating */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
