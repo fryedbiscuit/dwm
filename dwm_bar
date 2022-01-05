@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # bar_battery () {
 # 	if [ -e /sys/class/power_supply/BAT1/capacity ]; then
 # 		CHARGE=$(cat /sys/class/power_supply/BAT1/capacity)
@@ -8,7 +8,6 @@
 # }
 
 while true; do
-	# xsetroot -name "$(bar_battery)$(date +%H:%M)"
 	xsetroot -name "$(date "+%H:%M %D")"
 	sleep 30
 done
