@@ -40,13 +40,13 @@ static const Rule rules[] = {
  *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	/* { "Gimp",    NULL,     NULL,        0,         1,          0,           0,        -1 }, */
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "Clamtk",    NULL,     NULL,         0,         1,          0,           0,        -1 },
-	{ "st",      NULL,     NULL,           0,         0,          1,          -1,        -1 },
-	{ "st",      "float",     NULL,        0,         1,          1,          -1,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
+	/* class       instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Firefox",   NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "Clamtk",    NULL,     NULL,           0,         1,          0,          -1,        -1 },
+	{ "st",        NULL,     NULL,           0,         0,          1,          -1,        -1 },
+	{ "st",        "float",  NULL,           0,         1,          1,          -1,        -1 },
+	{ "qterminal", NULL,     NULL,           0,         0,          1,          -1,        -1 },
+	{ NULL,        NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -86,7 +86,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	/* { MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },

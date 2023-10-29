@@ -7,17 +7,19 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 export XIM_PROGRAM=/usr/bin/fcitx
 
-export XMENU="rofi -dmenu"
+export XMENU="dmenu"
 export TERMINAL="st"
 
+pkill ssh-agent; eval $(ssh-agent)
+
 numlockx on
-
-picom -b
-parcellite &
-nm-applet &
-sxhkd -m 1 &
-
 nitrogen --restore
 
+otd-daemon &
+sxhkd -m 1 &
+picom -b
+nm-applet &
+blueman-applet &
+dropbox &
 
 exec dwm
