@@ -14,12 +14,16 @@ pkill ssh-agent; eval $(ssh-agent)
 
 numlockx on
 nitrogen --restore
+screen -auto
 
-otd-daemon &
 sxhkd -m 1 &
+otd-daemon &
 picom -b
 nm-applet &
 blueman-applet &
-dropbox &
+udiskie -t &
+parcellite &
+# dropbox &
+keepassxc &
 
 exec dwm

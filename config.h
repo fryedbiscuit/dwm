@@ -46,6 +46,9 @@ static const Rule rules[] = {
 	{ "st",        NULL,     NULL,           0,         0,          1,          -1,        -1 },
 	{ "st",        "float",  NULL,           0,         1,          1,          -1,        -1 },
 	{ "qterminal", NULL,     NULL,           0,         0,          1,          -1,        -1 },
+	{ "Yad",       NULL,     NULL,           0,         1,          1,          -1,        -1 },
+	{ "zenity",    NULL,     NULL,           0,         1,          1,          -1,        -1 },
+	{ "Alert",    NULL,     NULL,           0,         1,          1,          -1,        -1 },
 	{ NULL,        NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
