@@ -39,12 +39,12 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	install -D dwm.desktop $(DESTDIR)/usr/share/xsessions/dwm.desktop
+	install -D dwm.desktop $(DESTDIR)${PREFIX}/usr/share/xsessions/dwm.desktop
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm-bar
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
-	rm -f $(DESTDIR)/usr/share/xsessions/dwm.desktop
+	rm -f $(DESTDIR)${PREFIX}/usr/share/xsessions/dwm.desktop
 
 .PHONY: all clean dist install uninstall
