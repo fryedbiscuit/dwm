@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=dwm
-Exec=/usr/bin/dwm-start
+Exec=/usr/local/bin/dwm
 
