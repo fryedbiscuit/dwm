@@ -35,21 +35,6 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	/* "autoexecutable", NULL, */
-    "dwm-bar", NULL,
-    "picom", "-b", NULL,
-    "sxhkd", "-m", "1", NULL,
-
-    "nm-applet", NULL,
-    "blueman-applet", NULL,
-    "udiskie", "-t", NULL,
-    "parcelite", NULL,
-    "keepassxc", NULL,
-
-    "otd-daemon", NULL,
-
-    "nitrogen", "--restore", NULL,
-    "numlockx", "on", NULL,
-    "screen", "-auto", NULL,
 	NULL /* terminate */
 };
 
