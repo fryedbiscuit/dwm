@@ -1,6 +1,4 @@
 #!/bin/bash
-pkill dwm_bar
-dwm_bar &
 
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
