@@ -71,7 +71,12 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#ifdef __ANDROID__
+#define MODKEY Mod1Mask
+#else
 #define MODKEY Mod4Mask
+#endif
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
